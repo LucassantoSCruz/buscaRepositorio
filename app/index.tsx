@@ -17,7 +17,6 @@ export default function Index() {
         <Text style={styles.text}>
           Explore o GitHub. Encontre repositórios e usuários.
         </Text>
-
         <Button
           title={"Entrar"}
           onPress={() => {

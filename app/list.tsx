@@ -6,10 +6,17 @@ import { useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+type Users = {
+  id: string;
+  login: string;
+  avatar_url: string | null;
+  type: string;
+};
+
 const List = () => {
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const [usuarios, setUsuarios] = useState([]);
+  const [usuarios, setUsuarios] = useState<Users[]>([]);
 
   const getUser = async () => {
     if (query.length > 2) {
