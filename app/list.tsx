@@ -1,9 +1,10 @@
 import CardBox from "@/components/CardBox";
+import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import axios from "axios";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 type Users = {
@@ -35,9 +36,7 @@ const List = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Buscar Usuário Github</Text>
-      </View>
+      <Header />
       <View style={styles.body}>
         <SearchBar query={query} setQuery={setQuery} getUser={getUser} />
         <FlatList
@@ -62,23 +61,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#2c083dff",
   },
-  header: {
-    flexDirection: "row",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 8,
-  },
   body: {
     flex: 11,
     padding: 16,
     backgroundColor: "#FFF",
     gap: 16,
-  },
-  title: {
-    fontWeight: "600",
-    fontSize: 24,
-    color: "#FFF",
   },
   inputText: {
     width: "100%",
