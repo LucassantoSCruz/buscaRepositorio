@@ -1,16 +1,9 @@
 import CardBox from "@/components/CardBox";
+import SearchBar from "@/components/SearchBar";
 import axios from "axios";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import {
-  FlatList,
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const List = () => {
@@ -18,7 +11,6 @@ const List = () => {
   const [query, setQuery] = useState("");
   const [usuarios, setUsuarios] = useState([]);
 
-  // Busca só quando botão é pressionado
   const getUser = async () => {
     if (query.length > 2) {
       try {
@@ -40,20 +32,7 @@ const List = () => {
         <Text style={styles.title}>Buscar Usuário Github</Text>
       </View>
       <View style={styles.body}>
-        <View style={styles.inputText}>
-          <TextInput
-            placeholder="Buscar usuário Github"
-            value={query}
-            onChangeText={setQuery}
-            style={{ flex: 1 }}
-          />
-          <TouchableOpacity onPress={getUser}>
-            <Image
-              source={require("@/assets/images/search.png")}
-              style={styles.inputImage}
-            />
-          </TouchableOpacity>
-        </View>
+        <SearchBar query={query} setQuery={setQuery} getUser={getUser} />
         <FlatList
           data={usuarios}
           keyExtractor={(item) => item.id.toString()}
