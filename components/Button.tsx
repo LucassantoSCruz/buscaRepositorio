@@ -1,9 +1,5 @@
+import { ButtonProps } from "@/types/componentTypes";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-
-type ButtonProps = {
-  title: string;
-  onPress: () => void;
-};
 
 export default function Button({ title, onPress }: ButtonProps) {
   return (

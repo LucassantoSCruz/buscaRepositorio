@@ -1,3 +1,4 @@
+import { SearchBarProps } from "@/types/componentTypes";
 import {
   Image,
   StyleSheet,
@@ -5,12 +6,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
-type SearchBarProps = {
-  query: string;
-  setQuery: (text: string) => void;
-  getUser: () => void;
-};
 
 export default function SearchBar({
   query,

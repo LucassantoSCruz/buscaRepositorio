@@ -1,11 +1,5 @@
+import { CardBoxProps } from "@/types/componentTypes";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-
-type CardBoxProps = {
-  name: string;
-  image: string | null;
-  type: string;
-  onPress: () => void;
-};
 
 export default function CardBox({ name, image, type, onPress }: CardBoxProps) {
   return (

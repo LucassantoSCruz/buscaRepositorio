@@ -1,18 +1,12 @@
 import CardBox from "@/components/CardBox";
 import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
+import { Users } from "@/types/userTypes";
 import axios from "axios";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-type Users = {
-  id: string;
-  login: string;
-  avatar_url: string | null;
-  type: string;
-};
 
 const List = () => {
   const router = useRouter();

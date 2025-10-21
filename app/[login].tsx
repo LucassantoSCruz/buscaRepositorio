@@ -1,21 +1,10 @@
+import { User } from "@/types/userTypes";
 import { Ionicons } from "@expo/vector-icons";
 import axios from "axios";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-type User = {
-  login: string;
-  avatar_url: string | null;
-  public_repos: number;
-  followers: number;
-  following: number;
-  bio: string | null;
-  location?: string | null;
-  company?: string | null;
-  blog?: string | null;
-};
 
 const Account = () => {
   const params = useLocalSearchParams();
