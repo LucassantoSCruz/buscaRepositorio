@@ -6,7 +6,17 @@ import {
   View,
 } from "react-native";
 
-export default function SearchBar({ query, setQuery, getUser }) {
+type SearchBarProps = {
+  query: string;
+  setQuery: (text: string) => void;
+  getUser: () => void;
+};
+
+export default function SearchBar({
+  query,
+  setQuery,
+  getUser,
+}: SearchBarProps) {
   return (
     <View style={styles.inputText}>
       <TextInput
