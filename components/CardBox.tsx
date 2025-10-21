@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     marginRight: 12,
-    borderRadius: 999,
+    borderRadius: 8,
   },
   textContainer: {
     gap: 4,
