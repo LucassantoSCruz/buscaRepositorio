@@ -1,6 +1,9 @@
+import { useRouter } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Header() {
+  const router = useRouter();
+
   return (
     <View style={styles.header}>
       <Text style={styles.title}>Buscar Repositório Github</Text>
@@ -19,6 +22,9 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "600",
     fontSize: 24,
-    color: "#ffffffff",
+    color: "#ffffff",
+  },
+  backIcon: {
+    marginRight: 16,
   },
 });

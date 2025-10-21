@@ -1,6 +1,13 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function CardBox({ name, image, type, onPress }) {
+type CardBoxProps = {
+  name: string;
+  image: string | null;
+  type: string;
+  onPress: () => void;
+};
+
+export default function CardBox({ name, image, type, onPress }: CardBoxProps) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={{ uri: `${image}` }} style={styles.image} />
