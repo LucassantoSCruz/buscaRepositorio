@@ -1,6 +1,7 @@
 import CardBox from "@/components/CardBox";
 import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
+import { useUsers } from "@/context/UsersContext";
 import { useGithubUsers } from "@/hooks/useGithubUsers";
 import { Users } from "@/types/userTypes";
 import { useRouter } from "expo-router";
@@ -11,7 +12,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const List = () => {
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const { usuarios, loading, error, getUser } = useGithubUsers();
+  const { usuarios, loading } = useUsers();
+  const { getUser } = useGithubUsers();
 
   return (
     <SafeAreaView style={styles.container}>
