@@ -1,8 +1,8 @@
 import CardBox from "@/components/CardBox";
 import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
+import { useGithubUsers } from "@/hooks/useGithubUsers";
 import { Users } from "@/types/userTypes";
-import axios from "axios";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
@@ -11,29 +11,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const List = () => {
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const [usuarios, setUsuarios] = useState<Users[]>([]);
-
-  const getUser = async () => {
-    if (query.length > 2) {
-      try {
-        const response = await axios.get(
-          `https://api.github.com/search/users?q=${query}`
-        );
-        setUsuarios(response.data.items);
-      } catch (error) {
-        console.error(error);
-      }
-    } else {
-      setUsuarios([]);
-    }
-  };
+  const { usuarios, loading, error, getUser } = useGithubUsers();
 
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <View style={styles.body}>
-        <SearchBar query={query} setQuery={setQuery} getUser={getUser} />
-        <FlatList
+        <SearchBar
+          query={query}
+          setQuery={setQuery}
+          getUser={() => getUser(query)}
+        />
+        <FlatList<Users>
           data={usuarios}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (

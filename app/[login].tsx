@@ -12,6 +12,7 @@ const Account = () => {
   const login = params.login || "Usuário";
 
   const [userData, setUserData] = useState<User | null>(null);
+
   useEffect(() => {
     axios
       .get(`https://api.github.com/users/${login}`)
